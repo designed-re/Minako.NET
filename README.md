@@ -1,2 +1,2 @@
 # Minako.NET
-minako.moe api warpper for C#
+minako.moe api wrapper for C#
