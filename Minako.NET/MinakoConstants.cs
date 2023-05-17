@@ -8,7 +8,7 @@ namespace Minako.NET
 {
     public class MinakoConstants
     {
-        public const string MinakoAPI = "https://api.minako.v4.cryental.dev";
+        public const string MinakoAPI = "https://api.cryental.dev/minako";
 
         #region Ohys
 

@@ -27,5 +27,15 @@ namespace Minako.NET.Tests
             Console.WriteLine(JsonConvert.SerializeObject(res2));
             Assert.IsNotNull(res2);
         }
+
+        [TestMethod]
+        public async Task OhysSearch()
+        {
+            var res = await _minako.Ohys.GetOhysSearchAsync("Oshi no ko");
+            Console.WriteLine(JsonConvert.SerializeObject(res));
+            Assert.IsNotNull(res);
+        }
+
+
     }
-}
+}   

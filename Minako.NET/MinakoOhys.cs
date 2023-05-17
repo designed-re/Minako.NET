@@ -21,7 +21,7 @@ namespace Minako.NET
 
         public async Task<OhysIndexResponse> GetOhysIndexAsync(int page = 1)
         {
-            var response = await _client.GetAsync(Path.Combine(MinakoConstants.MinakoAPI, MinakoConstants.OhysRoute));
+            var response = await _client.GetAsync(string.Concat(MinakoConstants.MinakoAPI, MinakoConstants.OhysRoute));
             response.EnsureSuccessStatusCode();
 
             var responseStr = await response.Content.ReadAsStringAsync();
@@ -35,7 +35,7 @@ namespace Minako.NET
         {
             var response =
                 await _client.GetAsync(
-                    string.Format(Path.Combine(MinakoConstants.MinakoAPI, MinakoConstants.OhysDetailRoute), mini.Id));
+                    string.Format(string.Concat(MinakoConstants.MinakoAPI, MinakoConstants.OhysDetailRoute), mini.Id));
             response.EnsureSuccessStatusCode();
 
             var responseStr = await response.Content.ReadAsStringAsync();
@@ -54,7 +54,7 @@ namespace Minako.NET
         {
             var response =
                 await _client.GetAsync(
-                    string.Format(Path.Combine(MinakoConstants.MinakoAPI, MinakoConstants.OhysDetailRoute), id));
+                    string.Format(string.Concat(MinakoConstants.MinakoAPI, MinakoConstants.OhysDetailRoute), id));
             response.EnsureSuccessStatusCode();
 
             var responseStr = await response.Content.ReadAsStringAsync();
@@ -68,5 +68,19 @@ namespace Minako.NET
 
             return model;
         }
+
+        public async Task<OhysIndexResponse> GetOhysSearchAsync(string query)
+        {
+            var response = await _client.GetAsync(string.Format(string.Concat(MinakoConstants.MinakoAPI, MinakoConstants.OhysSearchRoute), query));
+            response.EnsureSuccessStatusCode();
+
+            var responseStr = await response.Content.ReadAsStringAsync();
+
+            var model = JsonConvert.DeserializeObject<OhysIndexResponse>(responseStr);
+
+            return model;
+        }
+
+
     }
 }
