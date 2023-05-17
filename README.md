@@ -1,2 +1,2 @@
 # Minako.NET
-minako.moe api wrapper for C#
+cryental.dev api wrapper for C#

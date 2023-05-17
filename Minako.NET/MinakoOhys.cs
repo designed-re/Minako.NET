@@ -50,7 +50,7 @@ namespace Minako.NET
             return model;
         }
 
-        public async Task<OhysDetail> GetOhysDetailAsync(int id)
+        public async Task<OhysDetail> GetOhysDetailAsync(string id)
         {
             var response =
                 await _client.GetAsync(
